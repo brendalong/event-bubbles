@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event Bubbles</title>
+	<link type="text/css" rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+	<div id="starwars" style="padding-top:20px">
+
+		<h2 id="starwars-rebel">Star Wars</h2>
+		<p>It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire. During the battle, Rebel spies managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR, an armored space station with enough power to destroy an entire planet. </p>
+
+		<small>Click anywhere in the above area to see the eventListener in action via console</small>
+	</div>
+
+
+	<hr>
+	<p>The boxes below are stack on each other. The order is called a bubbling order, because an event bubbles from the innermost element up through parents, like a bubble of air in the water.</p>
+
+	<p>Click below to see it bubble:</p>
+
+	<div class="d1" onclick="highlight(this)">1  
+	    <div class="d2" onclick="highlight(this)">2
+	        <div class="d3" onclick="highlight(this)">3 
+	        </div> 
+	    </div>
+	</div>
+
+	
+	<hr>
+	<h4>Note:</h4>
+	<ul>
+		<li>The target remains the same, however "this" changes based on the bubble.</li>
+		<li>"this" is also available as event.currentTarget</li>
+		<li>Try out example 2 in the js</li>
+	</ul>
+
+	<hr>
+	<h4>Summary</h4>
+	<ul>
+		<li>Events first are captured down to deepest target, then bubble up. In IE9 they only bubble.</li>
+		<li>All handlers work on bubbling stage excepts addEventListener with last argument true, which is the only way to catch the event on capturing stage.</li>
+		<li>Bubbling/capturing can be stopped by event.cancelBubble=true (IE) or event.stopPropagation() for other browsers.</li>
+	</ul>
+
+	<hr>
+	<p><small>More of this example can be found at <a href="http://javascript.info/tutorial/bubbling-and-capturing">http://javascript.info/tutorial/bubbling-and-capturing</a></small></p>
+
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
